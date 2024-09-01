@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import copyText from "./copyText";
 
 export default function Item({ editMode, initialText, onDelete, index }) {
   const [text, setText] = useState(initialText);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = useCallback((e) => {
     setText(e.target.value);
-  };
+  }, []);
 
   const [showTooltip, setShowTooltip] = useState(false);
 
@@ -30,7 +30,7 @@ export default function Item({ editMode, initialText, onDelete, index }) {
           />
         </div>
       ) : (
-        <div style={{ position: "relative", display: "inline-block" }}>
+        <div>
           <p onClick={handleCopyClick} style={{ cursor: "pointer" }}>
             {text}
           </p>
