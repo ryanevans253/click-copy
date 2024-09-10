@@ -43,6 +43,7 @@ function App() {
       <button onClick={toggleEditMode} className="edit-button">
         {editMode ? "Copy Mode" : "Edit Mode"}
       </button>
+
       <Tooltip />
       <h1>Click to Copy</h1>
       {instructionsVisible && (
@@ -73,6 +74,7 @@ function App() {
         </div>
       )}
       {!editMode && <div className="spacer"></div>}
+
       {items.map((item, i) => {
         return (
           <Item
