@@ -51,18 +51,11 @@ function App() {
     localStorage.setItem("items", JSON.stringify(items));
   }, [items]);
 
-  // useEffect(() => {
-  //   const items = JSON.parse(localStorage.getItem("items"));
-  //   items ? items : [];
-  // }, []);
-
   return (
     <div className="wrapper">
       <button onClick={toggleEditMode} className="edit-button">
         {editMode ? "Copy Mode" : "Edit Mode"}
       </button>
-
-      <button onClick={getListFromLocalStorage}>get items</button>
 
       <Tooltip />
       <h1>Click to Copy</h1>
