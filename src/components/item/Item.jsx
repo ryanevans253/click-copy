@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import copyText from "./copyText";
+import copyText from "../../lib/copyText";
 
 export default function Item({ editMode, initialText, onDelete, index }) {
   const [text, setText] = useState(initialText);

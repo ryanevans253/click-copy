@@ -1,11 +1,20 @@
 import { useState, useRef, useEffect } from "react";
 import "./App.css";
-import Item from "./Item";
-import Tooltip from "./Tooltip";
+import Item from "./components/item/Item.jsx";
+import Tooltip from "./components/tooltip/Tooltip.jsx";
+
+const getListFromLocalStorage = () => {
+  const items = JSON.parse(localStorage.getItem("items"));
+  return items ? items : [];
+};
+
+const setInitialMode = (items) => {
+  return items.length > 0 ? false : true;
+};
 
 function App() {
-  const [items, setItems] = useState([]);
-  const [editMode, setEditMode] = useState(true);
+  const [items, setItems] = useState(getListFromLocalStorage());
+  const [editMode, setEditMode] = useState(setInitialMode(items));
   const [textInput, setTextInput] = useState("");
   const [instructionsVisible, setInstructionsVisible] = useState(true);
   const inputRef = useRef(null);
@@ -38,11 +47,22 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(items));
+  }, [items]);
+
+  // useEffect(() => {
+  //   const items = JSON.parse(localStorage.getItem("items"));
+  //   items ? items : [];
+  // }, []);
+
   return (
     <div className="wrapper">
       <button onClick={toggleEditMode} className="edit-button">
         {editMode ? "Copy Mode" : "Edit Mode"}
       </button>
+
+      <button onClick={getListFromLocalStorage}>get items</button>
 
       <Tooltip />
       <h1>Click to Copy</h1>

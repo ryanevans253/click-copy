@@ -1,0 +1,17 @@
+{
+  "AWSEBDockerrunVersion": 1,
+  "containerDefinitions": [
+    {
+      "name": "click2copyv2",
+      "image": "779846792212.dkr.ecr.us-east-1.amazonaws.com/click2copy:latest",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ]
+    }
+  ]
+}

@@ -7,8 +7,16 @@ const Tooltip = () => {
 
   return (
     <div className="tooltip-button-container">
-      <button className="tooltip-button">?</button>
-      <div className="tooltip-message">{message}</div>
+      <button
+        className="tooltip-button"
+        aria-label="Tooltip"
+        aria-describedby="tooltip-message"
+      >
+        ?
+      </button>
+      <div id="tooltip-message" className="tooltip-message">
+        {message}
+      </div>
     </div>
   );
 };

@@ -186,6 +186,7 @@
 }
 
 .tooltip-message {
+  visibility: hidden;
   position: absolute;
   top: 100%;
   right: 0;
@@ -194,12 +195,11 @@
   padding: 8px;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  display: none;
   z-index: 1000;
 }
 
 .tooltip-button-container:hover .tooltip-message {
-  display: flex;
+  visibility: visible;
   min-width: 250px;
   max-width: 600px;
 }
